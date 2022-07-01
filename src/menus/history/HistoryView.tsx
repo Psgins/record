@@ -32,6 +32,13 @@ const styles = {
     containerTitle: {
         mb: 2,
     },
+    containerInformationCol1: {
+        mr: 4,
+    },
+    containerInformationCol2: {
+        ml: 3,
+        mr: 4,
+    },
     bottomActions: {
         display: "flex",
         justifyContent: "end",
@@ -46,7 +53,7 @@ const HistoryView: FC = () => {
     const [data, setData] = useState(initData);
 
     useEffect(() => {
-        setData({ ...initData, bmi: "1234", score: "1234" });
+        setData({ ...initData, weight: "90", bmi: "1234", score: "20" });
     }, []);
 
     const handleOnCancel = useCallback(() => {
@@ -103,79 +110,172 @@ const HistoryView: FC = () => {
                 <Typography variant="h5" sx={styles.containerTitle}>
                     Generic Information
                 </Typography>
-                <Grid container spacing={2}>
+                <Grid container spacing={3}>
                     <Grid item xs={6}>
-                        <Grid container item>
-                            <Grid item xs={4}>
-                                <Typography variant="body1">
-                                    <strong>Weight</strong>
-                                </Typography>
+                        <Box sx={styles.containerInformationCol1}>
+                            <Grid container spacing={1}>
+                                <Grid item xs={6}>
+                                    <Typography
+                                        fontWeight={700}
+                                        variant="body1"
+                                    >
+                                        Weight
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={5}>
+                                    <Typography align="right" variant="body1">
+                                        {data.weight}
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <Typography align="left" variant="body1">
+                                        Kg
+                                    </Typography>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={8}>
-                                <Typography variant="body1">90</Typography>
+                            <Grid container spacing={1}>
+                                <Grid item xs={6}>
+                                    <Typography
+                                        fontWeight={700}
+                                        variant="body1"
+                                    >
+                                        Muscle
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={5}>
+                                    <Typography align="right" variant="body1">
+                                        40
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <Typography align="left" variant="body1">
+                                        Kg
+                                    </Typography>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                        <Grid container item>
-                            <Grid item xs={4}>
-                                <Typography variant="body1">
-                                    <strong>Muscle</strong>
-                                </Typography>
+                            <Grid container spacing={1}>
+                                <Grid item xs={6}>
+                                    <Typography
+                                        fontWeight={700}
+                                        variant="body1"
+                                    >
+                                        Fat
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={5}>
+                                    <Typography align="right" variant="body1">
+                                        40
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <Typography align="left" variant="body1">
+                                        Kg
+                                    </Typography>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={8}>
-                                <Typography variant="body1">40</Typography>
+                            <Grid container spacing={1}>
+                                <Grid item xs={6}></Grid>
+                                <Grid item xs={5}>
+                                    <Typography align="right" variant="body1">
+                                        40
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <Typography align="left" variant="body1">
+                                        %
+                                    </Typography>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                        <Grid container item>
-                            <Grid item xs={4}>
-                                <Typography variant="body1">
-                                    <strong>Fat (kg)</strong>
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={8}>
-                                <Typography variant="body1">40</Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid container item>
-                            <Grid item xs={4}>
-                                <Typography variant="body1">
-                                    <strong>Fat (%)</strong>
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={8}>
-                                <Typography variant="body1">40</Typography>
-                            </Grid>
-                        </Grid>
+                        </Box>
                     </Grid>
                     <Grid item xs={6}>
-                        <Grid container item>
-                            <Grid item xs={4}>
-                                <Typography variant="body1">
-                                    <strong>BMI</strong>
-                                </Typography>
+                        <Box sx={styles.containerInformationCol2}>
+                            <Grid container spacing={1}>
+                                <Grid item xs={6}>
+                                    <Typography
+                                        fontWeight={700}
+                                        variant="body1"
+                                    >
+                                        Calories Burn
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={5}>
+                                    <Typography align="right" variant="body1">
+                                        1500
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <Typography variant="body1">
+                                        Kcal
+                                    </Typography>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={8}>
-                                <Typography variant="body1">24</Typography>
+                            <Grid container spacing={1}>
+                                <Grid item xs={6}>
+                                    <Typography
+                                        fontWeight={700}
+                                        variant="body1"
+                                    >
+                                        BMI
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={5}>
+                                    <Typography align="right" variant="body1">
+                                        {data.bmi}
+                                    </Typography>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={4}>
-                                <Typography variant="body1">
-                                    <strong>Calories Burn</strong>
-                                </Typography>
+                            <Grid container spacing={1}>
+                                <Grid item xs={6}>
+                                    <Typography
+                                        fontWeight={700}
+                                        variant="body1"
+                                    >
+                                        Score
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={5}>
+                                    <Typography align="right" variant="body1">
+                                        {data.score}
+                                    </Typography>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={8}>
-                                <Typography variant="body1">1500</Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                                <Typography variant="body1">
-                                    <strong>Score</strong>
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={8}>
-                                <Typography variant="body1">60</Typography>
-                            </Grid>
-                        </Grid>
+                        </Box>
                     </Grid>
                 </Grid>
             </Paper>
+            <Grid container spacing={3}>
+                <Grid item xs={6}>
+                    <Paper sx={styles.container}>
+                        <Typography variant="h5" sx={styles.containerTitle}>
+                            Muscle (kg)
+                        </Typography>
+                    </Paper>
+                </Grid>
+                <Grid item xs={6}>
+                    <Paper sx={styles.container}>
+                        <Typography variant="h5" sx={styles.containerTitle}>
+                            Muscle (%)
+                        </Typography>
+                    </Paper>
+                </Grid>
+            </Grid>
+            <Grid container spacing={3}>
+                <Grid item xs={6}>
+                    <Paper sx={styles.container}>
+                        <Typography variant="h5" sx={styles.containerTitle}>
+                            Fat (kg)
+                        </Typography>
+                    </Paper>
+                </Grid>
+                <Grid item xs={6}>
+                    <Paper sx={styles.container}>
+                        <Typography variant="h5" sx={styles.containerTitle}>
+                            Fat (%)
+                        </Typography>
+                    </Paper>
+                </Grid>
+            </Grid>
             <Box sx={styles.bottomActions}>
                 <Button size="small" onClick={handleOnCancel}>
                     Back

@@ -71,8 +71,8 @@ const HistoryItem: FC<HistoryItemProps> = (props) => {
                 <IconButton onClick={handleOnEdit}>
                     <EditIcon />
                 </IconButton>
-                <IconButton>
-                    <DeleteIcon onClick={handleOnDelete} />
+                <IconButton onClick={handleOnDelete}>
+                    <DeleteIcon />
                 </IconButton>
             </Box>
         </Card>

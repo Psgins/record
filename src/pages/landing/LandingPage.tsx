@@ -11,8 +11,14 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { FC } from "react";
 import { Link as RouterLink, Route, Routes } from "react-router-dom";
 import History from "../../menus/history";
+import Dashboard from "../../menus/dashboard";
+import { Colors } from "../../constants";
 
 const styles = {
+    root: {
+        backgroundColor: Colors.snow_drift,
+        minHeight: "100vh",
+    },
     toolbarBox: {
         flexGrow: 1,
         display: {
@@ -29,7 +35,7 @@ const styles = {
 
 const LandingPage: FC = () => {
     return (
-        <>
+        <Box sx={styles.root}>
             <AppBar position="static">
                 <Container maxWidth="md">
                     <Toolbar disableGutters>
@@ -67,9 +73,10 @@ const LandingPage: FC = () => {
                 </Container>
             </AppBar>
             <Routes>
+                <Route path="/" element={<Dashboard />} />
                 <Route path="/history/*" element={<History />} />
             </Routes>
-        </>
+        </Box>
     );
 };
 
